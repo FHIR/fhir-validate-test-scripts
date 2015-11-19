@@ -1,0 +1,42 @@
+{
+  "resourceType": "TestScript",
+  "id": "update",
+  "url": "http://hl7.org/fhir/TestScript/update",
+  "name": "Update Test Script",
+  "status": "draft",
+  "description": "Test Script for update of the patient resource",
+  "conained" : [
+    {"id": "#local", "resourceType": "Patient", "extraField": "doesNotMatter"}
+  ],
+  "fixture": [
+    {
+      "id": "example-patient",
+      "resource": {
+        "reference": "#local"
+      }
+    }
+  ],
+  "test": [
+    {
+      "id": "validation-1",
+      "name": "Simple validation",
+      "description": "TODO",
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "code": "update"
+            },
+            "sourceId": "example-patient-updated",
+            "targetId": "example-patient"
+          }
+        },
+        {
+          "assert": {
+            "responseCode": "201"
+          }
+        }
+      ]
+    }
+  ]
+}
