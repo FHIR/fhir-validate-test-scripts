@@ -25,15 +25,18 @@
         {
           "operation": {
             "type": {
-              "code": "update"
+              "code": "$validate"
             },
-            "sourceId": "example-patient-updated",
-            "targetId": "example-patient"
+            "resource": "Patient",
+            "sourceId": "#local"
+            "params": {
+              "profile": "specificProfile"
+            }
           }
         },
         {
           "assert": {
-            "responseCode": "201"
+            "responseCode": "200"
           }
         }
       ]
